@@ -36,14 +36,14 @@
 
 .btn {
   color: #fff;
-  background-color: #1db954;
+  background-color: #2ebd59;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.5;
   border-radius: 500px;
-  padding: 16px 38px 16px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.25px;
   font-family: "Circular", "Helvetica", "Arial", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
+  padding: 8px 35px 6px;
 }

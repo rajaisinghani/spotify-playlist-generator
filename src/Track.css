@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    width: 100%;
+    align-self: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.title {
+    width: 40%;
+}
+
+.artist {
+    width: 25%;
+}
+
+.album {
+    width: 20%;
+}
+
+.time {
+    width: 10%;
+}
+
+.column {
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    border-color: #948484;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    margin: 0;
+    padding: 10px 0px 10px 20px;
+    font-size: 16px;
+}
