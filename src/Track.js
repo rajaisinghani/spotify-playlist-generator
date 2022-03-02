@@ -1,15 +1,44 @@
-import React from 'react';
-import "./Track.css";
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
-const Track = props => {
+function Track() {
+    const [characters, setCharacters] = useState([])
+    const [query, setQuery] = useState("")
+
+    useEffect(() => {
+      axios(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
+        method: 'GET',
+        headers: { 'Authorization' : 'Bearer ' + localStorage.getItem('token')}
+      })
+      .then (genreResponse => {
+        setCharacters(genreResponse.data.tracks.items)        
+        console.log(characters);
+      })
+      .catch(error => {
+        console.log(error.response)
+     })
+    }, [query])
+
     return (
-      <div className="container">
-          <div className="column title">{props.title}</div>
-          <div className="column artist">{props.artist}</div>
-          <div className="column album">{props.album}</div>
-          <div className="column time">{props.time}</div>
-      </div>
+        <div className="Track">
+            <div className="search">
+                <input type="text"
+                       placeholder={"Search Character"}
+                       className={"input"}
+                       onChange={event => setQuery(event.target.value)}
+                       value={query}
+                />
+            </div>
+            <div className="results">
+                {characters.map(character => (
+                    <div>
+                        <img src={character.image} alt={character.name}/>
+                        {character.name}
+                    </div>
+                ))}
+            </div>
+        </div>
     );
-  }
-  
+}
+
 export default Track;
